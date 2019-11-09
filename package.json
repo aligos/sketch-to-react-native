@@ -1,21 +1,24 @@
 {
-  "name": "svg_to_react",
-  "version": "1.0.0",
-  "description": "",
+  "name": "sketch-to-react-native",
+  "version": "1.0.1",
   "main": "src/index.js",
+  "repository": "https://github.com/nanohop/sketch-to-react-native.git",
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "puppeteer": "^0.10.2",
-    "svgson": "^2.1.0"
+    "puppeteer": "^2.0.0",
+    "svgson": "^4.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-plugin-transform-async-to-generator": "^6.24.1",
-    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-regenerator": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "regenerator-runtime": "^0.11.0"
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/node": "^7.7.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/plugin-transform-async-to-generator": "^7.7.0",
+    "@babel/plugin-transform-destructuring": "^7.6.0",
+    "@babel/plugin-transform-regenerator": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "regenerator-runtime": "^0.13.3"
   },
   "scripts": {
     "convert": "babel-node ./src",
@@ -25,10 +28,5 @@
   },
   "bin": {
     "sketch-to-react-native": "./bin/convert.js"
-  },
-  "engines": {
-    "node": ">=6.10.0"
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }
