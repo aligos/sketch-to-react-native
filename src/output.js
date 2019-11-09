@@ -67,13 +67,13 @@ const generateComponentStrings = ({
     const styles = styleId ? ` style={styles.${styleId}}` : ''
 
     if(js.type == 'Text') {
-      if(js.childs.length == 0) {
+      if(js.children.length == 0) {
         return `${ele.spaces}<Text${attrs}${styles}>${js.text}${ele.single ? '</Text>' : ''}`
       }
-      if(js.childs.length == 1 && js.childs[0].type == 'Tspan') {
-        return `${ele.spaces}<Text${attrs}${styles}>${js.text}${js.childs[0].text}</Text>` 
+      if(js.children.length == 1 && js.children[0].type == 'Tspan') {
+        return `${ele.spaces}<Text${attrs}${styles}>${js.text}${js.children[0].text}</Text>` 
       } else {
-        const tspans = js.childs.map((t) => {
+        const tspans = js.children.map((t) => {
           if(t.type == 'Tspan') {
             // TODO: once tspans have ids, change this
             // const {Tattrs, TattrObjs, TstyleId} = nativeAttrs(t, ele);

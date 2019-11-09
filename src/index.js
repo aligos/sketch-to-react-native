@@ -56,8 +56,8 @@ emptyAndCreateDir(TEMP_COMPONENT_DIR);
       inputFile: INPUT_FILENAME
     });
 
-    svgson(preppedData, {}, async function(result) {
-
+    svgson.parse(preppedData, {}).then(async function(result) {
+      
       const processedJS = processNode(result);
 
       const preppedFile = 'file://'+path.join(BASE_PATH, TEMP_DIR, 'prepped_'+INPUT_FILENAME);
@@ -68,8 +68,7 @@ emptyAndCreateDir(TEMP_COMPONENT_DIR);
       
       const js = imagifyParents(cleanedJS)
       const { idDims, orderedIds } = await getBrowserBoundingBoxes(js, preppedFile);
-
-      const mainBackgroundColor = firstBackgroundColor(js.childs[0], js.childs[0], idDims);
+      const mainBackgroundColor = firstBackgroundColor(js.children[0], js.children[0], idDims);
 
       const childParent = generateChildParent(orderedIds, idDims);
 
@@ -86,7 +85,7 @@ emptyAndCreateDir(TEMP_COMPONENT_DIR);
       let jsObjs = {}
       const unrollJs = (js) => {
         jsObjs[js.id] = js;
-        js.childs.forEach((child) => {
+        js.children.forEach((child) => {
           unrollJs(child)
         })
       }

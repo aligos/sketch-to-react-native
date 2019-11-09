@@ -143,7 +143,7 @@ const firstBackgroundColor = (js, base, idDims) => {
       backgroundColor = js.style.backgroundColor;
     }
   }
-  js.childs.forEach((child) => {
+  js.children.forEach((child) => {
     const childColor = firstBackgroundColor(child, base, idDims);
     if(childColor) {
       backgroundColor = childColor;

@@ -2,12 +2,12 @@ const puppeteer = require('puppeteer');
 
 
 const getAllElementIds = (js) => {
-  let ids = js.childs.filter((child) => {
+  let ids = js.children.filter((child) => {
     return child.id;
   }).map((child) => {
     return child.id;
   });
-  js.childs.forEach((child) => {
+  js.children.forEach((child) => {
     const childIds = getAllElementIds(child);
     ids = [...ids, ...childIds]
   })
@@ -88,7 +88,7 @@ const getEleDimensions = (async (node, page, idDims, orderedIds) => {
     }
   }
 
-  for(let child of node.childs) {
+  for(let child of node.children) {
     await getEleDimensions(child, page, idDims, orderedIds);
   }
 

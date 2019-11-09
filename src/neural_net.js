@@ -52,9 +52,9 @@ const childIsBadElement = (async (child, tempDir) => {
 
 
 const filterElements = (async (js, tempDir) => {
-  if(js.childs) {
+  if(js.children) {
 
-    const newChildren = await Promise.all(js.childs.map(async (child) => {
+    const newChildren = await Promise.all(js.children.map(async (child) => {
       const childShouldBeFilteredOut = await childIsBadElement(child, tempDir);
       if(childShouldBeFilteredOut) {
         return null;
@@ -65,7 +65,7 @@ const filterElements = (async (js, tempDir) => {
     }));
 
     const filteredChildren = newChildren.filter(child => child);
-    js.childs = filteredChildren
+    js.children = filteredChildren
   }
   return js;
 })
